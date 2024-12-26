@@ -7,4 +7,6 @@ public interface ClientService {
     List<Client> getAllClients();
     Client updateClient(Client client);
     void deleteClient(int id);
+    Client findByEmailAndPassword(String email, String password);
+
 }

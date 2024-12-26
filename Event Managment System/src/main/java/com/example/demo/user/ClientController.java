@@ -1,6 +1,7 @@
 package com.example.demo.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -34,4 +35,14 @@ public class ClientController {
         clientService.deleteClient(id);
         return ResponseEntity.noContent().build();
     }
+    
+    @PostMapping("/login")
+    public ResponseEntity<Client> loginClient(@RequestBody LoginRequest request) {
+        Client client = clientService.findByEmailAndPassword(request.getEmail(), request.getPassword());
+        if (client != null) {
+            return ResponseEntity.ok(client);
+        }
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+    } 
+
 }

@@ -38,4 +38,9 @@ public class ClientServiceImpl implements ClientService {
             throw new RuntimeException("Client with ID " + id + " does not exist.");
         }
     }
+    
+    public Client findByEmailAndPassword(String email, String password) {
+        return clientRepository.findByEmailAndPassword(email, password);
+    }
+
 }

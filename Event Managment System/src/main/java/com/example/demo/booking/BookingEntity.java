@@ -10,7 +10,7 @@ import jakarta.persistence.Id;
 @Entity
 public class BookingEntity {
 
-	@Id
+	@Id 
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int bookingId;
 	private int userId;

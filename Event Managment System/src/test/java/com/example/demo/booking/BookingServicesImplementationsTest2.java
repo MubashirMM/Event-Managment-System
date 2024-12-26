@@ -33,7 +33,7 @@ class BookingServicesImplementationsTest2 {
         Mockito.verify(bookingRepo, Mockito.times(1)).save(booking);
     }
 
-    @Test 
+    @Test  
     public void testAddNewBooking_NullBooking_ThrowsException() { 
         assertThatThrownBy(() -> {
             bookingServices.addNewBooking(null);
@@ -59,7 +59,7 @@ class BookingServicesImplementationsTest2 {
             bookingServices.deleteBooking(bookingId);
         }).isInstanceOf(BookingNotFoundException.class);
     }
-
+ 
     @Test
     public void testGetAllBookings() {
         List<BookingEntity> bookings = List.of(new BookingEntity(), new BookingEntity());
@@ -113,7 +113,7 @@ class BookingServicesImplementationsTest2 {
     }
 
     
-
+ 
     @Test
     public void testUpdateBooking_NonExistent_ThrowsException() {
         int bookingId = 1;

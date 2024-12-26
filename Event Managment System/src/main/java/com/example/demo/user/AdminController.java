@@ -1,6 +1,7 @@
 package com.example.demo.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,5 +34,15 @@ public class AdminController {
     public ResponseEntity<Void> deleteAdmin(@PathVariable int id) {
         adminService.deleteAdmin(id);
         return ResponseEntity.noContent().build();
-    }  
+    } 
+    
+    @PostMapping("/login")
+    public ResponseEntity<Admin> loginAdmin(@RequestBody LoginRequest request) {
+        Admin admin = adminService.findByEmailAndPassword(request.getEmail(), request.getPassword());
+        if (admin != null) {
+            return ResponseEntity.ok(admin);
+        }
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+    }
+
 } 

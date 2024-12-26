@@ -30,7 +30,7 @@ public class AdminServiceImpl implements AdminService {
         }
     }
 
-    @Override
+    @Override 
     public void deleteAdmin(int id) {
         if (adminRepository.existsById(id)) {
             adminRepository.deleteById(id);
@@ -38,4 +38,9 @@ public class AdminServiceImpl implements AdminService {
             throw new RuntimeException("Admin with ID " + id + " does not exist.");
         }
     }
+    
+    public Admin findByEmailAndPassword(String email, String password) {
+        return adminRepository.findByEmailAndPassword(email, password);
+    }
+
 }

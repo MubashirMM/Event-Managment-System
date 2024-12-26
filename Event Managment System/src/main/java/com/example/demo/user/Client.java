@@ -10,13 +10,13 @@ public class Client extends UserEntity {
 
     public Client() {}
 
-    public Client(String firstName, String lastName, String password, String contact, String email, String address, LocalDate registrationDate) {
+    public Client(String firstName, String  lastName, String password, String contact, String email, String address, LocalDate registrationDate) {
         super(firstName, lastName, password, contact, email, address);
         this.registrationDate = registrationDate;
     }
 
 	public LocalDate getRegistrationDate() {
-		return registrationDate;
+		return registrationDate; 
 	}
  
 	public void setRegistrationDate(LocalDate registrationDate) {

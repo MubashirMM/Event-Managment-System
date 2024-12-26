@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/bookings")
 public class BookingController {
 
-    @Autowired
+    @Autowired 
     private BookingServices bookingServices;
 
     // Add a new booking
@@ -20,7 +20,7 @@ public class BookingController {
         try {
             BookingEntity savedBooking = bookingServices.addNewBooking(booking);
             return new ResponseEntity<>(savedBooking, HttpStatus.CREATED);
-        } catch (InvalidBookingException e) {
+        } catch (InvalidBookingException e) { 
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
     }

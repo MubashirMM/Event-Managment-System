@@ -9,10 +9,10 @@ import org.springframework.stereotype.Service;
 @Service 
 public class BookingServicesImplementations implements BookingServices {
      
-    @Autowired
+    @Autowired 
     private BookingRepo repo;
 
-    @Override
+    @Override 
     public BookingEntity addNewBooking(BookingEntity booking) throws InvalidBookingException {
         if (booking == null) {
             throw new InvalidBookingException("Booking cannot be null");
@@ -60,7 +60,7 @@ public class BookingServicesImplementations implements BookingServices {
                 existingBooking.setDrinkId(booking.getDrinkId());
                 existingBooking.setTotalCost(booking.getTotalCost());
                 existingBooking.setEventDate(booking.getEventDate());
-                existingBooking.setNoOfPersons(booking.getNoOfPersons());
+                existingBooking.setNoOfPersons(booking.getNoOfPersons()); 
                 existingBooking.setBookingDate(booking.getBookingDate());
                 return repo.save(existingBooking);
             }).orElseThrow(() -> new BookingNotFoundException("Booking not found with id " + id));

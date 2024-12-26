@@ -23,6 +23,5 @@ public class Admin extends UserEntity {
 		this.dateAdded = dateAdded;
 	}
 
-   
 }
  
